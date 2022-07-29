@@ -1,9 +1,9 @@
-import React from "react";
-import "./List.css";
-
 const baseURL = "https://image.tmdb.org/t/p/original/";
-
-const List = ({ movies, handle }) => {
+const MyList = () => {
+    const movie = localStorage.getItem("list");
+    console.log(movies);
+    let movies = [];
+    movies.push(movie);
     return (
         <div className="container">
             {movies.map((movie) => {
@@ -14,13 +14,6 @@ const List = ({ movies, handle }) => {
                             <h2>{movie.title}</h2>
                         </div>
                         <p>{movie.overview}</p>
-                        <button
-                            onClick={() => {
-                                handle(movie);
-                            }}
-                        >
-                            Add to list
-                        </button>
                     </div>
                 );
             })}
@@ -28,4 +21,4 @@ const List = ({ movies, handle }) => {
     );
 };
 
-export default List;
+export default MyList;
